@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+define('g_captcha','6LdHBysUAAAAAH9DS78sb343bvx5OwMRJoX1VGC1');
+
+Route::get('/admin', function () {
 
     return view('auth.login');
 });
@@ -24,7 +26,12 @@ Route::get('/dashboard',[ 'as'=>'dashboard', function () {
     return view('dashboard');
 }]);
 
+Route::get('/', function () {
 
+    return view('applicants.applicant_form');
+});
+
+Route::post('submit-application','ApplicantsController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

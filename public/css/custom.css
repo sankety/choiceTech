@@ -1,0 +1,11 @@
+.login-box,
+.register-box{
+    width:600px !important;
+}
+@media (max-width: 768px) {
+    .login-box,
+    .register-box {
+        width: 70% !important;
+        margin-top: 20px;
+    }
+}

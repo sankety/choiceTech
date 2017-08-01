@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Applicant;
 use GuzzleHttp\Client;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\App;
 
 class ApplicantsController extends Controller
@@ -19,31 +21,38 @@ class ApplicantsController extends Controller
            'email'=>'required|email',
            'web_address'=>'required|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
            'cover_letter'=>'required',
-           'attachments'=>'required',
+           'attachment'=>'required',
            'work_opinion'=>'required',
            'g-recaptcha-response'=>'required',
         ]);
-//dump($request->all());
+
         $res = $this->verifyGResponse($request);
         $jres=json_decode($res,true);
-        //dd($jres);
         if(!empty($jres) && $jres['success']==false){
             return back()->withErrors(['google_error'=>"Captcha Error"]);
         }
-
-
+        $attach = $this->uploadAttachments($request->file('attachment'));
+        $request->merge(['attachments'=>$attach]);
 
         try{
             Applicant::where('email',$request->email)->firstOrFail();
             return back()->withErrors(['Email'=>"Email id is already in system"]);
         }catch(\Exception $e){
-          $record = Applicant::create($request->except(['g-recaptcha-response']));
-            return $record;
+          $record = Applicant::create($request->except(['g-recaptcha-response','attachment']));
+            $request->session()->flash('status', 'Application submitted successfully!');
+            return redirect()->route('main');
         }
 
 
     }
-
+    public function uploadAttachments(UploadedFile $file)
+    {
+        $destinationPath = public_path() . '/uploads/';
+        $extension = $file->getClientOriginalExtension() ?: 'txt';
+        $fileName = str_random(10) . '.' . $extension;
+        $file->move($destinationPath, $fileName);
+        return $fileName;
+    }
     /**
      * @param Request $request
      * @return \Psr\Http\Message\StreamInterface

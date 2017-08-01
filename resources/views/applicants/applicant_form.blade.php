@@ -31,6 +31,13 @@
                     </ul>
                 </div>
             @endif
+            @if(Session::get('status'))
+                <div class="alert alert-success">
+                    <strong>{{Session::get('status')}}</strong>
+
+
+                </div>
+                @endif
 
             <div class="box box-info">
                 <div class="box-header with-border">
@@ -38,7 +45,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="/submit-application" METHOD="post" novalidate="true">
+                <form class="form-horizontal" action="/submit-application" METHOD="post" novalidate="true" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
@@ -78,7 +85,7 @@
                             <label for="inputAttachmentd3" class="col-sm-3 control-label">Attachment</label>
 
                             <div class="col-sm-9">
-                                <input type="file" name="attachments" class="form-control" id="inputAttachmentd3" placeholder="Attachment">
+                                <input type="file" name="attachment" class="form-control" id="inputAttachmentd3" placeholder="Attachment">
                             </div>
                         </div>
                         <div class="form-group">

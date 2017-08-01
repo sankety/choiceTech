@@ -26,10 +26,10 @@ Route::get('/dashboard',[ 'as'=>'dashboard', function () {
     return view('dashboard');
 }]);
 
-Route::get('/', function () {
+Route::get('/',['as'=>'main','uses'=> function () {
 
     return view('applicants.applicant_form');
-});
+}]);
 
 Route::post('submit-application','ApplicantsController@store');
 Auth::routes();

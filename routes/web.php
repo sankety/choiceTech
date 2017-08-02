@@ -13,8 +13,8 @@
 
 define('g_captcha','6LdHBysUAAAAAH9DS78sb343bvx5OwMRJoX1VGC1');
 
-Route::get('/admin', function () {
-
+Route::get('/admin-panel', function () {
+//return 'djsf';
     return view('auth.login');
 });
 Route::get('/profile',[ 'as'=>'profile', function () {
@@ -27,11 +27,12 @@ Route::get('/dashboard',[ 'as'=>'dashboard', function () {
 }]);
 
 Route::get('/',['as'=>'main','uses'=> function () {
-
+    //return view('auth.login');
     return view('applicants.applicant_form');
 }]);
 
 Route::post('submit-application','ApplicantsController@store');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ApplicantsController@data')->name('home');
+Route::get('/view/{id}', 'ApplicantsController@view')->name('view');

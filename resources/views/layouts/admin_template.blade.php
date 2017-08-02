@@ -88,8 +88,12 @@
 <!-- Bootstrap 3.3.6 -->
 <script src="/admin/bootstrap/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
+{{--
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+--}}
+{{--
 <script src="/admin/plugins/morris/morris.min.js"></script>
+--}}
 <!-- Sparkline -->
 <script src="/admin/plugins/sparkline/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
@@ -111,9 +115,12 @@
 <!-- AdminLTE App -->
 <script src="/admin/dist/js/app.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+{{--
 <script src="/admin/dist/js/pages/dashboard.js"></script>
+--}}
 <!-- AdminLTE for demo purposes -->
 <script src="/admin/dist/js/demo.js"></script>
+@yield('scripts')
 </body>
 </html>
 

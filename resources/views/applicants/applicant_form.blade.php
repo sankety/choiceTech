@@ -8,6 +8,7 @@
 ?>
 @extends('layouts.admin-single')
 <script src='https://www.google.com/recaptcha/api.js'></script>
+<link rel="stylesheet" href="/css/custom.css">
 
 @section('content')
 
@@ -107,8 +108,11 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-default">Cancel</button>
-                        <button type="submit" class="btn btn-info pull-right">Sign in</button>
+                        <button type="reset" class="btn btn-default">Cancel</button>
+                        <button type="submit" class="btn btn-info pull-right">Submit</button>
+                    </div>
+                    <div>
+                        <a href="/admin-panel" title="Go to admin panel" class=" pull-right">Go to admin</a>
                     </div>
                     <!-- /.box-footer -->
                 </form>

@@ -70,4 +70,16 @@ class ApplicantsController extends Controller
         //$client->setDefaultOption();
         return $guzzleResponse->getBody();
     }
+
+    public function data(){
+        $data['lists'] = Applicant::all();
+        return view('display_data',$data);
+    }
+    public function view($id){
+        $data['data'] = Applicant::where('id',$id)->first();
+        if(count($data['data'])==0){
+            return redirect()->route('home');
+        }
+        return view('view-data',$data);
+    }
 }

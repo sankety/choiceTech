@@ -34,7 +34,7 @@
                     <span class="pull-right text-muted">127 likes - 3 comments</span>
                 </div>
                 <!-- /.box-body -->
-                <div class="box-footer box-comments">
+                {{--<div class="box-footer box-comments">
                     <div class="box-comment">
                         <!-- User image -->
                         <img class="img-circle img-sm" src="/admin/dist/img/user3-128x128.jpg" alt="User Image">
@@ -65,16 +65,15 @@
                         <!-- /.comment-text -->
                     </div>
                     <!-- /.box-comment -->
-                </div>
+                </div>--}}
                 <!-- /.box-footer -->
                 <div class="box-footer">
-                    <form action="#" method="post">
+
                         <img class="img-responsive img-circle img-sm" src="/admin/dist/img/user4-128x128.jpg" alt="Alt Text">
                         <!-- .img-push is used to add margin to elements next to floating images -->
                         <div class="img-push">
                             <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
                         </div>
-                    </form>
                 </div>
                 <!-- /.box-footer -->
             </div>

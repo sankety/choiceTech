@@ -20,7 +20,8 @@
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
-            <p class="login-box-msg">Please fill in your details to submit your application</p>
+            <p class="login-box-msg">Please fill in your details to submit your application<br>
+                <span style="color: red">*All fields are compulsory</span> </p>
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <strong>Whoops!</strong> There were some problems with your input.<br><br>

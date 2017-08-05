@@ -11,7 +11,7 @@
     <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="../../index2.html"><b>Admin</b>LTE</a>
+            <a href="../../index2.html"><b>Coloe</b>Elephant</a>
         </div>
 
         <div class="register-box-body">
@@ -60,15 +60,9 @@
                 </div>
             </form>
 
-            <div class="social-auth-links text-center">
-                <p>- OR -</p>
-                <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using
-                    Facebook</a>
-                <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using
-                    Google+</a>
-            </div>
 
-            <a href="login.html" class="text-center">I already have a membership</a>
+
+            <a href="/admin-panel" class="text-center">I already have a membership</a>
         </div>
         <!-- /.form-box -->
     </div>

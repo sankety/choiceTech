@@ -73,10 +73,12 @@ class ApplicantsController extends Controller
 
     public function data(){
         $data['lists'] = Applicant::all();
+        $data['page_title'] = 'Application List';
         return view('display_data',$data);
     }
     public function view($id){
         $data['data'] = Applicant::where('id',$id)->first();
+        $data['page_title'] = 'Application details';
         if(count($data['data'])==0){
             return redirect()->route('home');
         }

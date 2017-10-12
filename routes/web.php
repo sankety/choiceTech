@@ -26,13 +26,12 @@ Route::get('/dashboard',[ 'as'=>'dashboard', function () {
     return view('dashboard');
 }]);
 
-Route::get('/',['as'=>'main','uses'=> function () {
-    //return view('auth.login');
-    return view('applicants.applicant_form');
-}]);
+Route::get('/',['as'=>'main','middleware'=>'auth','uses'=> 'ProductsController@index']);
+Route::post('purchase/{id}','ProductsController@purchase');
 
 Route::post('submit-application','ApplicantsController@store');
 Auth::routes();
 
 Route::get('/home', 'ApplicantsController@data')->name('home');
+Route::get('/product', 'ProductsController@data')->name('product');
 Route::get('/view/{id}', 'ApplicantsController@view')->name('view');

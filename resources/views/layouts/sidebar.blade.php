@@ -34,8 +34,8 @@
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="active treeview">
-                <a href="{{url('home')}}">
-                    <i class="fa fa-list"></i> <span>Application List</span>
+                <a href="{{url('product')}}">
+                    <i class="fa fa-shopping-cart"></i> <span>Product List</span>
                 </a>
             </li>
             </ul>

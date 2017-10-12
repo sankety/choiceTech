@@ -15,7 +15,7 @@
 
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">List of Applications</h3>
+                        <h3 class="box-title">List of Products</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -23,20 +23,24 @@
                             <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Web Address</th>
-                                <th>Cover Letter</th>
+                                <th>Stock</th>
+                                <th>Price</th>
+                                <th>Created At</th>
+{{--
                                 <th>Action</th>
+--}}
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($lists as $list)
                             <tr>
                                 <td>{{ isset($list->name)?$list->name:'' }}</td>
-                                <td>{{ isset($list->email)?$list->email:'' }}</td>
-                                <td>{{ isset($list->web_address)?$list->web_address:'' }}</td>
-                                <td>{{ isset($list->cover_letter)?str_limit($list->cover_letter,7):'' }}</td>
+                                <td>{{ isset($list->stock)?$list->stock:'' }}</td>
+                                <td>{{ isset($list->price)?$list->price:'' }}</td>
+                                <td>{{ isset($list->created_at)?$list->created_at:'' }}</td>
+{{--
                                 <td><a href="/view/{{$list->id}}"><i class="fa fa-eye"></i></a></td>
+--}}
                             </tr>
                             @endforeach
                             </tbody>
@@ -46,7 +50,9 @@
                                 <th>Email</th>
                                 <th>Web Address</th>
                                 <th>Cover Letter</th>
+{{--
                                 <th>Action</th>
+--}}
                             </tr>
                             </tfoot>
                         </table>

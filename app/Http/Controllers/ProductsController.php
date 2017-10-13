@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -15,7 +16,8 @@ class ProductsController extends Controller
     }
 
     public function purchase($id){
-        \DB::table('orders')->insert(['product_id'=>$id,'user_id'=>Auth::user()->id]);
+        $product = Product::find($id);
+        Order::create(['product_id'=>$id,'user_id'=>Auth::user()->id,'vendor_id'=>$product->vendor_id]);
         return $id;
     }
 
@@ -76,9 +78,16 @@ class ProductsController extends Controller
     }
 
     public function data(){
-        $data['lists'] = Product::all();
+        $data['lists'] = Product::where('vendor_id',Auth::user()->id)->get();
         $data['page_title'] = 'Product List';
         return view('display_data',$data);
+    }
+
+    public function orderData(){
+        $data['lists'] = Order::with(['products','user'])
+            ->where('vendor_id',Auth::user()->id)->get();
+        $data['page_title'] = 'Order List';
+        return view('display_order_data',$data);
     }
     public function view($id){
         $data['data'] = Product::where('id',$id)->first();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -62,10 +63,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        /*return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'user_type' => $data['user_type'],
             'password' => bcrypt($data['password']),
-        ]);
+        ]);*/
+        return User::create(array_except($data,'password_confirmation'));
+    }
+
+    public function registered(Request $request, $user)
+    {
+        if($user->user_type==1){//dd($user);
+            return redirect()->route('product');
+        }else{
+            return redirect()->route('main');
+        }
     }
 }

@@ -33,11 +33,18 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
+            @if(Auth::user()->user_type==1)
             <li class="active treeview">
                 <a href="{{url('product')}}">
                     <i class="fa fa-shopping-cart"></i> <span>Product List</span>
                 </a>
             </li>
+                <li class="active treeview">
+                <a href="{{url('product.create')}}">
+                    <i class="fa fa-shopping-cart"></i> <span>Create Product</span>
+                </a>
+            </li>
+             @endif
             </ul>
     </section>
     <!-- /.sidebar -->

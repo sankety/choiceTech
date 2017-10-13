@@ -17,6 +17,10 @@ Route::get('/admin-panel', function () {
 //return 'djsf';
     return view('auth.login');
 });
+Route::get('/vendor/register', function () {
+//return 'djsf';
+    return view('auth.register',['user_type'=>'vendor']);
+})->name('vendor.register');
 Route::get('/profile',[ 'as'=>'profile', function () {
 
     return view('profile');
@@ -32,6 +36,9 @@ Route::post('purchase/{id}','ProductsController@purchase');
 Route::post('submit-application','ApplicantsController@store');
 Auth::routes();
 
-Route::get('/home', 'ApplicantsController@data')->name('home');
+/*Route::get('/home', 'ApplicantsController@data')->name('home');*/
 Route::get('/product', 'ProductsController@data')->name('product');
+Route::get('/create-product', 'ProductsController@createProduct')->name('product.create');
+/*Route::post('/create-product', 'ProductsController@storeProduct')->name('product.store');*/
+Route::get('/orders', 'ProductsController@orderData')->name('orders');
 Route::get('/view/{id}', 'ApplicantsController@view')->name('view');

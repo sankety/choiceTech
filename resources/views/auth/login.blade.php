@@ -56,7 +56,8 @@
             </form>
 
 
-            <a href="{{route('register')}}" class="text-center">Register a new membership</a>
+            <a href="{{route('register')}}" class="text-center">Register </a><br>or<br>
+            <a href="{{route('vendor.register')}}" class="text-center">Register as a vendor</a>
 
         </div>
         <!-- /.login-box-body -->
